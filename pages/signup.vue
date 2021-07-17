@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>planet music</h1>
-  </div>
+    <main>
+        <h1>Signup</h1>
+    </main>
 </template>
 
 <script>
