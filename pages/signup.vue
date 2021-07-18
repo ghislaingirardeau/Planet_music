@@ -38,20 +38,32 @@
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 2">
                     <legend>Parlons musique, dans quelle catégorie vous situez vous :</legend>
-                    <input type="radio" value="student" v-model="userCategory" @click="next">
+                    <input type="radio" value="student" v-model="userCategory">
                     <label for="Student">Elève</label>
-                    <input type="radio" value="professor" v-model="userCategory" @click="next">
+                    <input type="radio" value="professor" v-model="userCategory">
                     <label for="professor">Professeur</label>
-                    <input type="radio" value="musician" v-model="userCategory" @click="next">
+                    <input type="radio" value="musician" v-model="userCategory">
                     <label for="musician">Musicien, Groupe de musique</label>
-                    <input type="radio" value="festival" v-model="userCategory" @click="next">
+                    <input type="radio" value="festival" v-model="userCategory">
                     <label for="festival">Festival, bar, Association</label>
                 </fieldset>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form-example" v-show="on === amateur">
-                    <legend>Parlons musique, de quel instrument jouez vous :</legend>
+                <fieldset class="form-example" v-show="on === 3 && (userCategory === 'student' || this.userCategory === 'professor')">
+                    <legend>Parlons musique, categorie :</legend>
+                    <input type="checkbox" value="bois" name="bois">
+                    <label for="guitare">bois</label><br/>
+                    <input type="checkbox" value="corde" name="corde">
+                    <label for="batterie">corde</label><br/>
+                    <input type="checkbox" value="percussion" name="percussion">
+                    <label for="piano">percussion</label>
+                </fieldset>
+            </transition>
+
+            <transition :name="animationForm" mode="out-in">
+                <fieldset class="form-example" v-show="on === 4 && (userCategory === 'student' || this.userCategory === 'professor')">
+                    <legend>Parlons musique, instrument :</legend>
                     <input type="checkbox" value="classique" name="instrument" v-model="instrument">
                     <label for="guitare">guitare</label><br/>
                     <input type="checkbox" value="rocks" name="instrument" v-model="instrument">
@@ -62,7 +74,7 @@
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form-example" v-show="on === professionnal">
+                <fieldset class="form-example" v-show="on === 3 && (userCategory === 'musician' || this.userCategory === 'festival')">
                  <legend>Parlons musique, votre genre de musique :</legend>
                  <input type="checkbox" value="classique" name="musicType" v-model="musicType">
                  <label for="kraken">classique</label><br/>
@@ -84,7 +96,7 @@ export default {
   data() {
         return {
             on: 0,
-           lastname: "",
+            lastname: "",
             firstname: "",
             birth: "",
             localization: "",
@@ -100,18 +112,7 @@ export default {
     computed: {
         animationForm() {
             return 'signup-slide-' + this.direction
-        },
-        amateur() {
-            if(this.userCategory === 'student' || this.userCategory === 'professor'){
-                return this.on = 3
-            } else return false
-        },
-        professionnal() {
-           if ((this.userCategory === 'musician' || this.userCategory === 'festival')) {
-                return this.on = 3
-            } else return false
-        },
-
+        }
     },
     methods: {
         next() {
