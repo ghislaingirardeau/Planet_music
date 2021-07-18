@@ -52,24 +52,17 @@
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 3 && (userCategory === 'student' || this.userCategory === 'professor')">
                     <legend>Parlons musique, categorie :</legend>
-                    <input type="checkbox" value="bois" name="bois">
-                    <label for="guitare">bois</label><br/>
-                    <input type="checkbox" value="corde" name="corde">
-                    <label for="batterie">corde</label><br/>
-                    <input type="checkbox" value="percussion" name="percussion">
-                    <label for="piano">percussion</label>
-                </fieldset>
-            </transition>
+                    <b-button v-b-modal.modal-1 v-for="i in instrumentClass" :key="i">{{i}} </b-button>
 
-            <transition :name="animationForm" mode="out-in">
-                <fieldset class="form-example" v-show="on === 4 && (userCategory === 'student' || this.userCategory === 'professor')">
-                    <legend>Parlons musique, instrument :</legend>
-                    <input type="checkbox" value="classique" name="instrument" v-model="instrument">
-                    <label for="guitare">guitare</label><br/>
-                    <input type="checkbox" value="rocks" name="instrument" v-model="instrument">
-                    <label for="batterie">batterie</label><br/>
-                    <input type="checkbox" value="dance" name="instrument" v-model="instrument">
-                    <label for="piano">piano</label>
+                    <b-modal id="modal-1" title="Choisissez vos instruments :">
+                        <input type="checkbox" value="guitare" name="instrumentsList" v-model="instrumentsList">
+                        <label for="guitare">guitare</label><br/>
+                        <input type="checkbox" value="batterie" name="instrumentsList" v-model="instrumentsList">
+                        <label for="batterie">batterie</label><br/>
+                        <input type="checkbox" value="piano" name="instrumentsList" v-model="instrumentsList">
+                        <label for="piano">piano</label>
+                    </b-modal>
+                    {{instrumentsList}}
                 </fieldset>
             </transition>
 
@@ -91,6 +84,8 @@
 </template>
 
 <script>
+import instrument from '@/store/instruments'
+
 export default {
   layout: 'landing',
   data() {
@@ -104,8 +99,9 @@ export default {
             userStatus: "",
             userCategory: "",
             musicType: [],
-            instrument: [],
+            instrumentsList: [],
             direction: '',
+            instrumentClass: instrument.category
 
         }
     },
