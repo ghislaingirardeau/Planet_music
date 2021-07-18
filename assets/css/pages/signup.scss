@@ -1,0 +1,55 @@
+.container__signup{
+    width: 80%;
+    margin: auto;
+}
+
+.form__signup {
+    width: 80%;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    & > label, input {
+        width: 100%;
+    }
+    & > fieldset {
+        position: absolute;
+    }
+}
+
+/* Animation forms slide */
+.signup-slide-right-enter-active {
+    transition: opacity 1s, transform 1s;
+    transform: translateX(0px);
+}
+.signup-slide-right-enter {
+    opacity: 0;
+    transform: translateX(80px);
+}
+  
+.signup-slide-right-leave-active {
+    transition: opacity 1s, transform 1s;
+    transform: translateX(0px);
+}
+.signup-slide-right-leave-to {
+    opacity: 0;
+    transform: translateX(-80px);
+}
+  
+.signup-slide-left-enter-active {
+    transition: opacity 1s, transform 1s;
+    transform: translateX(0px);
+}
+.signup-slide-left-enter {
+    opacity: 0;
+    transform: translateX(-80px);
+}
+  
+.signup-slide-left-leave-active {
+    transition: opacity 1s, transform 1s;
+    transform: translateX(0px);
+}
+.signup-slide-left-leave-to {
+    opacity: 0;
+    transform: translateX(80px);
+}

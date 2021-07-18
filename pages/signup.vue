@@ -1,10 +1,13 @@
 <template>
-    <main>
+    <main class="container__signup">
         <button><nuxt-link :to="{name: 'home'}">home</nuxt-link></button>
 
         <h1>Signup</h1>
 
-        <form action="" method="get">
+        <button @click="prev">prev</button>
+        <button @click="next">next</button>
+
+        <form action="" method="get" class="form__signup">
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 0">
@@ -25,9 +28,9 @@
             <transition :name="animationForm" mode="out-in">
             <fieldset class="form-example" v-show="on === 1">
                 <legend>Parlons musique, vous êtes :</legend>
-                <input type="radio" value="Amateur" v-model="userStatus">
+                <input type="radio" value="Amateur" v-model="userStatus" @click="next">
                 <label for="Amateur">Amateur</label>
-                <input type="radio" value="professional" v-model="userStatus">
+                <input type="radio" value="professional" v-model="userStatus" @click="next">
                 <label for="professional">Professionnel</label>
             </fieldset>
             </transition>
@@ -58,15 +61,21 @@
             </fieldset>
             </transition>
 
-            <div>
-              <input type="submit" value="Subscribe!">
-            </div>
+            <transition :name="animationForm" mode="out-in">
+            <fieldset class="form-example" v-show="on === 3">
+             <legend>Parlons musique, votre genre de musique :</legend>
+             <input type="checkbox" value="classique" name="musicType" v-model="musicType">
+             <label for="kraken">classique</label><br/>
+             <input type="checkbox" value="rocks" name="musicType" v-model="musicType">
+             <label for="sasquatch">pop rocks</label><br/>
+             <input type="checkbox" value="dance" name="musicType" v-model="musicType">
+             <label for="mothman">dance</label>
+            </fieldset>
+            </transition>
+
         </form>
-
-        {{musicType}}
-
-        <button @click="prev">prev</button>
-        <button @click="next">next</button>
+        
+        
 
     </main>
 </template>
@@ -90,7 +99,7 @@ export default {
     },
     computed: {
         animationForm() {
-            return 'slide-' + this.direction
+            return 'signup-slide-' + this.direction
         }
     },
     methods: {
@@ -102,6 +111,7 @@ export default {
             } else {
                 this.on++
                 this.direction = "right"
+                console.log(this.on)
             }
         },
         prev() {
@@ -110,6 +120,7 @@ export default {
             } else {
                 this.on--
                 this.direction = "left"
+                console.log(this.on)
             }
 
         }
@@ -118,21 +129,5 @@ export default {
 </script>
 
 <style>
-.slide-right-enter-active, .slide-right-leave-active {
-  transition: opacity 1s;
-  transform: translateX(0px);
-}
-.slide-right-enter, .slide-right-leave-to {
-  opacity: 0;
-  transform: translateX(50px);
-}
 
-.slide-left-enter-active, .slide-left-leave-active {
-  transition: opacity 1s;
-  transform: translateX(0px);
-}
-.slide-left-enter, .slide-left-leave-to {
-  opacity: 0;
-  transform: translateX(-50px);
-}
 </style>
