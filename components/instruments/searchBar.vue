@@ -20,9 +20,8 @@ export default {
     },
     methods: {
         searchInstrument() {
-          let test = Object.values(this.instrumentClass)
-          for (let i of test) {
-              if(i.find(element => element === this.searchInst)) {
+          for (let i in this.instrumentClass) {
+              if(this.instrumentClass[i].find(element => element === this.searchInst)) {
                  return this.resultSearch = i
               } else {
                   this.resultSearch = "Cet instrument n'est pas dans la liste"
