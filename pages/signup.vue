@@ -7,6 +7,11 @@
         <button @click="prev">prev</button>
         <button @click="next">next</button>
 
+        <!-- search button feature -->
+        <button @click="searchInstrument">Search</button>
+        <input type="text" v-model="searchInst"> 
+        {{resultSearch}}  
+
         <form action="" method="get" class="form__signup">
 
             <transition :name="animationForm" mode="out-in">
@@ -98,7 +103,7 @@
                                 <label :for="e">{{e}} </label><br/>
                             </div>
                         </fieldset>
-                    </transition>                        
+                    </transition> 
 
                 </fieldset>
             </transition>
@@ -139,6 +144,8 @@ export default {
             instrumentCategory: "",
             instrumentsList: [],
             instrumentClass: instrument,
+            searchInst: "",
+            resultSearch: "",
             direction: '',
             
 
@@ -170,6 +177,16 @@ export default {
         },
         showInstruments(type) {
             return this.instrumentCategory = type
+        },
+        searchInstrument() {
+            let test = Object.values(this.instrumentClass)
+            for (let i of test) {
+                if(i.find(element => element === this.searchInst)) {
+                   return this.resultSearch = i
+                } else {
+                    this.resultSearch = "Cet instrument n'est pas dans la liste"
+                }
+            }            
         }
     }
 }
