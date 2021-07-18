@@ -6,11 +6,7 @@
 
         <button @click="prev">prev</button>
         <button @click="next">next</button>
-
-        <!-- search button feature -->
-        <button @click="searchInstrument">Search</button>
-        <input type="text" v-model="searchInst"> 
-        {{resultSearch}}  
+        <searchBar/>
 
         <form action="" method="get" class="form__signup">
 
@@ -127,6 +123,7 @@
 
 <script>
 import instrument from '@/store/instruments'
+import searchBar from '@/components/instruments/searchBar.vue'
 
 export default {
   layout: 'landing',
@@ -144,12 +141,11 @@ export default {
             instrumentCategory: "",
             instrumentsList: [],
             instrumentClass: instrument,
-            searchInst: "",
-            resultSearch: "",
             direction: '',
-            
-
         }
+    },
+    components: {
+        searchBar
     },
     computed: {
         animationForm() {
@@ -178,16 +174,6 @@ export default {
         showInstruments(type) {
             return this.instrumentCategory = type
         },
-        searchInstrument() {
-            let test = Object.values(this.instrumentClass)
-            for (let i of test) {
-                if(i.find(element => element === this.searchInst)) {
-                   return this.resultSearch = i
-                } else {
-                    this.resultSearch = "Cet instrument n'est pas dans la liste"
-                }
-            }            
-        }
     }
 }
 </script>
