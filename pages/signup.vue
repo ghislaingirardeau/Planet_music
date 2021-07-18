@@ -51,18 +51,55 @@
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 3 && (userCategory === 'student' || this.userCategory === 'professor')">
-                    <legend>Parlons musique, categorie :</legend>
-                    <b-button v-b-modal.modal-1 v-for="i in instrumentClass" :key="i">{{i}} </b-button>
+                    <legend>Parlons musique, choisissez votre instrument suivant sa catégorie :</legend>
 
-                    <b-modal id="modal-1" title="Choisissez vos instruments :">
-                        <input type="checkbox" value="guitare" name="instrumentsList" v-model="instrumentsList">
-                        <label for="guitare">guitare</label><br/>
-                        <input type="checkbox" value="batterie" name="instrumentsList" v-model="instrumentsList">
-                        <label for="batterie">batterie</label><br/>
-                        <input type="checkbox" value="piano" name="instrumentsList" v-model="instrumentsList">
-                        <label for="piano">piano</label>
-                    </b-modal>
-                    {{instrumentsList}}
+                    <button v-for="item in instrumentClass.category" :key="item" @click="showInstruments(item)">{{item}} </button>
+                    
+                    <transition :name="animationForm" mode="out-in">
+                        <fieldset v-if="instrumentCategory === 'Corde'">
+                            <div v-for="e in instrumentClass.Corde" :key="e">
+                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
+                                <label :for="e">{{e}} </label><br/>
+                            </div>
+                        </fieldset>
+                    </transition>
+
+                    <transition :name="animationForm" mode="out-in">
+                        <fieldset v-if="instrumentCategory === 'Percussion'">
+                            <div v-for="e in instrumentClass.Percussion" :key="e">
+                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
+                                <label :for="e">{{e}} </label><br/>
+                            </div>
+                        </fieldset>
+                    </transition>
+
+                    <transition :name="animationForm" mode="out-in">
+                        <fieldset v-if="instrumentCategory === 'Clavier'">
+                            <div v-for="e in instrumentClass.Clavier" :key="e">
+                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
+                                <label :for="e">{{e}} </label><br/>
+                            </div>
+                        </fieldset>
+                    </transition>
+
+                    <transition :name="animationForm" mode="out-in">
+                        <fieldset v-if="instrumentCategory === 'Bois'">
+                            <div v-for="e in instrumentClass.Bois" :key="e">
+                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
+                                <label :for="e">{{e}} </label><br/>
+                            </div>
+                        </fieldset>
+                    </transition>
+
+                    <transition :name="animationForm" mode="out-in">
+                        <fieldset v-if="instrumentCategory === 'Cuivre'">
+                            <div v-for="e in instrumentClass.Cuivre" :key="e">
+                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
+                                <label :for="e">{{e}} </label><br/>
+                            </div>
+                        </fieldset>
+                    </transition>                        
+
                 </fieldset>
             </transition>
 
@@ -99,9 +136,11 @@ export default {
             userStatus: "",
             userCategory: "",
             musicType: [],
+            instrumentCategory: "",
             instrumentsList: [],
+            instrumentClass: instrument,
             direction: '',
-            instrumentClass: instrument.category
+            
 
         }
     },
@@ -128,7 +167,9 @@ export default {
                 this.on--
                 this.direction = "left"
             }
-
+        },
+        showInstruments(type) {
+            return this.instrumentCategory = type
         }
     }
 }
