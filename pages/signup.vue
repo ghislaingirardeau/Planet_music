@@ -6,23 +6,22 @@
 
         <button @click="prev">prev</button>
         <button @click="next">next</button>
-        <searchBar/>
 
-        <form action="" method="get" class="form__signup">
+        <form class="form__signup">
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 0">
                     <legend>Pour mieux vous connaitre...</legend>
                     <label for="name">Votre nom : </label>
-                    <input type="text" name="lastname" id="lastname" v-model="lastname" required>
+                    <input type="text" name="lastname" id="lastname" v-model="lastname">
                     <label for="name">Votre prénom : </label>
-                    <input type="text" name="firstname" id="firstname" v-model="firstname" required>
+                    <input type="text" name="firstname" id="firstname" v-model="firstname">
                     <label for="name">Date de naissance : </label>
-                    <input type="date" name="birth" id="birth" max="2021-12-31" v-model="birth" required>
+                    <input type="date" name="birth" id="birth" max="2021-12-31" v-model="birth">
                     <label for="name">Localisation : </label>
-                    <input type="text" name="localisation" id="localisation" v-model="localization" required>
+                    <input type="text" name="localisation" id="localisation" v-model="localization">
                     <label for="email">Enter your email: </label>
-                    <input type="email" name="email" id="email" v-model="email" required>
+                    <input type="email" name="email" id="email" v-model="email">
                 </fieldset>
             </transition>
 
@@ -53,53 +52,8 @@
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 3 && (userCategory === 'student' || this.userCategory === 'professor')">
                     <legend>Parlons musique, choisissez votre instrument suivant sa catégorie :</legend>
-
-                    <button v-for="item in instrumentClass.category" :key="item" @click="showInstruments(item)">{{item}} </button>
+                    <instrumentSelect/>
                     
-                    <transition :name="animationForm" mode="out-in">
-                        <fieldset v-if="instrumentCategory === 'Corde'">
-                            <div v-for="e in instrumentClass.Corde" :key="e">
-                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
-                                <label :for="e">{{e}} </label><br/>
-                            </div>
-                        </fieldset>
-                    </transition>
-
-                    <transition :name="animationForm" mode="out-in">
-                        <fieldset v-if="instrumentCategory === 'Percussion'">
-                            <div v-for="e in instrumentClass.Percussion" :key="e">
-                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
-                                <label :for="e">{{e}} </label><br/>
-                            </div>
-                        </fieldset>
-                    </transition>
-
-                    <transition :name="animationForm" mode="out-in">
-                        <fieldset v-if="instrumentCategory === 'Clavier'">
-                            <div v-for="e in instrumentClass.Clavier" :key="e">
-                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
-                                <label :for="e">{{e}} </label><br/>
-                            </div>
-                        </fieldset>
-                    </transition>
-
-                    <transition :name="animationForm" mode="out-in">
-                        <fieldset v-if="instrumentCategory === 'Bois'">
-                            <div v-for="e in instrumentClass.Bois" :key="e">
-                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
-                                <label :for="e">{{e}} </label><br/>
-                            </div>
-                        </fieldset>
-                    </transition>
-
-                    <transition :name="animationForm" mode="out-in">
-                        <fieldset v-if="instrumentCategory === 'Cuivre'">
-                            <div v-for="e in instrumentClass.Cuivre" :key="e">
-                                <input type="checkbox" :value="e" name="instrumentsList" v-model="instrumentsList">
-                                <label :for="e">{{e}} </label><br/>
-                            </div>
-                        </fieldset>
-                    </transition> 
 
                 </fieldset>
             </transition>
@@ -122,8 +76,7 @@
 </template>
 
 <script>
-import instrument from '@/store/instruments'
-import searchBar from '@/components/instruments/searchBar.vue'
+import instrumentSelect from '@/components/instruments/instrumentSelect.vue'
 
 export default {
   layout: 'landing',
@@ -138,14 +91,11 @@ export default {
             userStatus: "",
             userCategory: "",
             musicType: [],
-            instrumentCategory: "",
-            instrumentsList: [],
-            instrumentClass: instrument,
             direction: '',
         }
     },
     components: {
-        searchBar
+        instrumentSelect
     },
     computed: {
         animationForm() {
@@ -171,9 +121,7 @@ export default {
                 this.direction = "left"
             }
         },
-        showInstruments(type) {
-            return this.instrumentCategory = type
-        },
+        
     }
 }
 </script>
