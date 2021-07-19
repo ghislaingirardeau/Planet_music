@@ -9,25 +9,31 @@
           </button>
         </transition>
 
+        <todoButton :item="test">
+          <slot></slot>
+        </todoButton>  
+
     </main>
 </template>
 
 <script>
+
 export default {
   layout: 'landing',
   data () {
     return {
-      docState: ""
+      docState: "",
+      test: "noir",
     }
   },
   computed: {
-  buttonMessage: function () {
-    switch (this.docState) {
-      case 'saved': return 'Modifier'
-      case 'edited': return 'Sauver'
-      case 'editing': return 'Annuler'
-    }
+    buttonMessage: function () {
+      switch (this.docState) {
+        case 'saved': return 'Modifier'
+        case 'edited': return 'Sauver'
+        case 'editing': return 'Annuler'
+      }
+    },
   }
-}
 }
 </script>
