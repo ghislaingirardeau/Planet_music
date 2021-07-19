@@ -7,7 +7,7 @@
         <button @click="prev">prev</button>
         <button @click="next">next</button>
 
-        <form class="form__signup">
+        <form class="form__signup" id="form">
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 0">
