@@ -13,6 +13,27 @@
           <slot></slot>
         </todoButton>  
 
+        <!-- <svg viewBox="0 0 350 250">
+  <path fill="none" stroke="red"
+    d="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+
+  <circle r="5" fill="red">
+    <animateMotion dur="10s" repeatCount="indefinite"
+      path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+  </circle>
+</svg> -->
+
+<button @click="reloaded">reload</button>
+<svg viewBox="0 0 400 400" :key="reload">
+  <path fill="none" stroke="red" 
+  d="m 0 0 c 2 57 25 14 59 14
+  "> </path>
+  <circle r="5" fill="red" id='circle_animation'>
+    <animateMotion dur="2s" repeatCount="2"
+      path="m 0 0 c 2 57 25 14 59 14"/>
+  </circle>
+</svg>
+  
     </main>
 </template>
 
@@ -24,6 +45,8 @@ export default {
     return {
       docState: "",
       test: "noir",
+      reload: false,
+      anim: `dur="2s" repeatCount="2" path="m 0 0 c 2 57 25 14 59 14"`
     }
   },
   computed: {
@@ -34,6 +57,12 @@ export default {
         case 'editing': return 'Annuler'
       }
     },
+  },
+  methods: {
+        
+    reloaded() {
+      this.reload = !this.reload
+    }
   }
 }
 </script>
