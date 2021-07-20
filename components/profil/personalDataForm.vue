@@ -1,5 +1,6 @@
 <template>
-
+<div>
+    <transition :name="animationForm" mode="out-in">
     <fieldset class="form-example" v-show="on === 0">
         <legend>Pour mieux vous connaitre...</legend>
         <label for="name">Votre nom : </label>
@@ -13,6 +14,10 @@
         <label for="email">Enter your email: </label>
         <input type="email" name="email" id="email" v-model="email">
     </fieldset>
+    </transition>
+
+</div>
+    
 </template>
 
 <script>
@@ -27,7 +32,12 @@ export default {
         }
     },
     props: {
-        on: String
+        on: Number
+    },
+    computed: {
+        animationForm() {
+            return 'signup-slide-' + this.$parent.direction
+        }
     },
 }
 </script>

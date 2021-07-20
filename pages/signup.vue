@@ -8,10 +8,8 @@
         <button @click="next">next</button>
 
         <form class="form__signup" id="form">
-
-            <transition :name="animationForm" mode="out-in">
-                <personalDataForm :on="on" />
-            </transition>
+            <!-- bloc personal data -->
+            <personalDataForm :on="on" />
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 1">
