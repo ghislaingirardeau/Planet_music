@@ -9,7 +9,11 @@
 
         <form class="form__signup" id="form">
             <!-- bloc personal data -->
-            <personalDataForm :on="on" />
+            <transition :name="animationForm" mode="out-in">
+                <fieldset class="form-example" v-show="on === 0">
+                    <personalDataForm :title="titleData" />
+                </fieldset>
+            </transition>
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 1">
@@ -24,23 +28,20 @@
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 2">
                     <legend>Parlons musique, dans quelle catégorie vous situez vous :</legend>
-                    <input type="radio" value="student" v-model="userCategory">
+                    <input type="radio" value="student" v-model="userCategory" @click="next">
                     <label for="Student">Elève</label>
-                    <input type="radio" value="professor" v-model="userCategory">
+                    <input type="radio" value="professor" v-model="userCategory" @click="next">
                     <label for="professor">Professeur</label>
-                    <input type="radio" value="musician" v-model="userCategory">
+                    <input type="radio" value="musician" v-model="userCategory" @click="next">
                     <label for="musician">Musicien, Groupe de musique</label>
-                    <input type="radio" value="festival" v-model="userCategory">
+                    <input type="radio" value="festival" v-model="userCategory" @click="next">
                     <label for="festival">Festival, bar, Association</label>
                 </fieldset>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form-example" v-show="on === 3 && (userCategory === 'student' || this.userCategory === 'professor')">
-                    <legend>Parlons musique, choisissez votre instrument suivant sa catégorie :</legend>
-                    <instrumentSelect/>
-                    
-
+                    <instrumentSelect :title="titleInstrument" />
                 </fieldset>
             </transition>
 
@@ -74,6 +75,8 @@ export default {
             userCategory: "",
             musicType: [],
             direction: '',
+            titleData: "Pour mieux vous connaitre...",
+            titleInstrument: "Choississez vos instruments favoris"
         }
     },
     components: {
