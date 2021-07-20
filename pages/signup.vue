@@ -10,19 +10,7 @@
         <form class="form__signup" id="form">
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form-example" v-show="on === 0">
-                    <legend>Pour mieux vous connaitre...</legend>
-                    <label for="name">Votre nom : </label>
-                    <input type="text" name="lastname" id="lastname" v-model="lastname">
-                    <label for="name">Votre prénom : </label>
-                    <input type="text" name="firstname" id="firstname" v-model="firstname">
-                    <label for="name">Date de naissance : </label>
-                    <input type="date" name="birth" id="birth" max="2021-12-31" v-model="birth">
-                    <label for="name">Localisation : </label>
-                    <input type="text" name="localisation" id="localisation" v-model="localization">
-                    <label for="email">Enter your email: </label>
-                    <input type="email" name="email" id="email" v-model="email">
-                </fieldset>
+                <personalDataForm :on="on" />
             </transition>
 
             <transition :name="animationForm" mode="out-in">
@@ -77,17 +65,13 @@
 
 <script>
 import instrumentSelect from '@/components/instruments/instrumentSelect.vue'
+import personalDataForm from '@/components/profil/personalDataForm.vue'
 
 export default {
   layout: 'landing',
   data() {
         return {
             on: 0,
-            lastname: "",
-            firstname: "",
-            birth: "",
-            localization: "",
-            email: "",
             userStatus: "",
             userCategory: "",
             musicType: [],
@@ -95,7 +79,8 @@ export default {
         }
     },
     components: {
-        instrumentSelect
+        instrumentSelect,
+        personalDataForm
     },
     computed: {
         animationForm() {
