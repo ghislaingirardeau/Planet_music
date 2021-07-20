@@ -25,6 +25,7 @@ export default {
             birth: "",
             localization: "",
             email: "",
+            index: 0
             
         }
     },
