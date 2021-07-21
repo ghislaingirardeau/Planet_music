@@ -48,12 +48,10 @@ export default {
             password: "",
 
             diplome: "",
-            index: 0
-            
         }
     },
     props: {
-        title: String
+        title: String,
     },
 
 }

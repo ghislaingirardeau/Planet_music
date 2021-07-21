@@ -11,7 +11,7 @@
             <!-- bloc personal data -->
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form__bloc" v-show="on === 0">
-                    <personalDataForm :title="titleData" />
+                    <personalData :title="titleData" />
                 </fieldset>
             </transition>
 
@@ -36,22 +36,24 @@
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form__bloc" v-show="on === 3 && (userCategory === 'student' || this.userCategory === 'professor')">
+                <fieldset class="form__bloc" v-show="on === 3">
                     <instrumentSelect :title="titleInstrument" />
                 </fieldset>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form__bloc" v-show="on === 4 && (userCategory === 'student' || this.userCategory === 'professor')">
-                    <preference />
+                <fieldset class="form__bloc" v-show="on === 4 ">
+                 <kindSelect :title="titleKind" />
                 </fieldset>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form__bloc" v-show="on === 3 && (userCategory === 'musician' || this.userCategory === 'festival')">
-                 <kindSelect :title="titleKind" />
+                <fieldset class="form__bloc" v-show="on === 5">
+                    <preference />
                 </fieldset>
             </transition>
+
+
 
         </form>
 
@@ -61,7 +63,7 @@
 <script>
 import instrumentSelect from '@/components/musicSelection/instrumentSelect.vue'
 import kindSelect from '@/components/musicSelection/kindSelect.vue'
-import personalDataForm from '@/components/profil/personalDataForm.vue'
+import personalData from '~/components/profil/personalData.vue'
 import status from '@/components/profil/status.vue'
 import preference from '@/components/profil/preference.vue'
 
@@ -75,12 +77,13 @@ export default {
             titleData: "Pour mieux vous connaitre...",
             titleInstrument: "Choississez vos instruments favoris",
             titleKind: "Choississez vos styles musicals",
+            index: 0
         }
     },
     components: {
         instrumentSelect,
         kindSelect,
-        personalDataForm,
+        personalData,
         status,
         preference
     },
@@ -92,7 +95,6 @@ export default {
     methods: {
         next() {
             let formLength = document.getElementsByClassName('form__bloc')
-
             if(this.on === (formLength.length - 1)) {
                 this.on
             } else {
