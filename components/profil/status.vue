@@ -16,11 +16,8 @@ export default {
             userStatus: String,
         }
     },
-    methods: {
-        next() {
-            this.$parent.on++
-            this.$parent.direction = "right"
-        },
-    }
+    props: {
+        next: Function
+    },
 }
 </script>
