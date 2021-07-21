@@ -21,7 +21,9 @@
             <input type="checkbox" :value="resultSearch" name="instrumentSelection" v-model="instrumentSelection">
             <label :for="resultSearch">{{resultSearch}}</label>
         </div> 
-        <p v-else-if="showInstrument == false">"Cet instrument n'est pas dans la liste"</p>        
+        <p v-else-if="showInstrument == false">"Cet instrument n'est pas dans la liste"</p>
+
+        <input type="button" value="next" @click="next">        
 
     </fieldset>
 
@@ -80,7 +82,8 @@ export default {
         },
     },
     props: {
-        title: String
+        title: String,
+        next: Function
     },
 }
 </script>

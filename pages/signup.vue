@@ -5,13 +5,13 @@
         <h1>Signup</h1>
 
         <button @click="prev">prev</button>
-        <button @click="next">next</button>
+        
 
         <form class="form__signup" id="form">
             <!-- bloc personal data -->
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form__bloc" v-show="on === 0">
-                    <personalData :title="titleData" />
+                    <personalData :title="titleData" :next="next" />
                 </fieldset>
             </transition>
 
@@ -37,13 +37,13 @@
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form__bloc" v-show="on === 3">
-                    <instrumentSelect :title="titleInstrument" />
+                    <instrumentSelect :title="titleInstrument" :next="next"/>
                 </fieldset>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form__bloc" v-show="on === 4 ">
-                 <kindSelect :title="titleKind" />
+                 <kindSelect :title="titleKind" :next="next"/>
                 </fieldset>
             </transition>
 

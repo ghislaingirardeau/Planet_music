@@ -7,7 +7,9 @@
         <input type="checkbox" value="rocks" name="musicType" v-model="musicType">
         <label for="sasquatch">pop rocks</label><br/>
         <input type="checkbox" value="dance" name="musicType" v-model="musicType">
-        <label for="mothman">dance</label>     
+        <label for="mothman">dance</label>
+
+        <input type="button" value="next" @click="next">     
 
     </fieldset>
 </template>
@@ -24,7 +26,8 @@ export default {
         
     },
     props: {
-        title: String
+        title: String,
+        next: Function
     },
 }
 </script>

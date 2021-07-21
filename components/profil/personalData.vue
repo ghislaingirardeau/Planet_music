@@ -29,6 +29,8 @@
         <label for="diplome">diplome: </label>
         <input type="diplome" name="diplome" id="diplome" v-model="diplome">
 
+        <input type="button" value="next" @click="next">
+
     </fieldset>
 
     
@@ -52,6 +54,7 @@ export default {
     },
     props: {
         title: String,
+        next: Function
     },
 
 }
