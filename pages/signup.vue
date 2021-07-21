@@ -7,7 +7,6 @@
         <button @click="prev">prev</button>
         <button @click="next">next</button>
 
-
         <form class="form__signup" id="form">
             <!-- bloc personal data -->
             <transition :name="animationForm" mode="out-in">
@@ -18,11 +17,7 @@
 
             <transition :name="animationForm" mode="out-in">
                 <fieldset class="form__bloc" v-show="on === 1">
-                    <legend>Parlons musique, vous êtes :</legend>
-                    <input type="radio" value="Amateur" v-model="userStatus" @click="next">
-                    <label for="Amateur">Amateur</label>
-                    <input type="radio" value="professional" v-model="userStatus" @click="next">
-                    <label for="professional">Professionnel</label>
+                    <status />
                 </fieldset>
             </transition>
 
@@ -47,6 +42,12 @@
             </transition>
 
             <transition :name="animationForm" mode="out-in">
+                <fieldset class="form__bloc" v-show="on === 4 && (userCategory === 'student' || this.userCategory === 'professor')">
+                    <preference />
+                </fieldset>
+            </transition>
+
+            <transition :name="animationForm" mode="out-in">
                 <fieldset class="form__bloc" v-show="on === 3 && (userCategory === 'musician' || this.userCategory === 'festival')">
                  <kindSelect :title="titleKind" />
                 </fieldset>
@@ -61,14 +62,15 @@
 import instrumentSelect from '@/components/musicSelection/instrumentSelect.vue'
 import kindSelect from '@/components/musicSelection/kindSelect.vue'
 import personalDataForm from '@/components/profil/personalDataForm.vue'
+import status from '@/components/profil/status.vue'
+import preference from '@/components/profil/preference.vue'
 
 export default {
   layout: 'landing',
   data() {
         return {
             on: 0,
-            userStatus: "",
-            userCategory: "",
+            userCategory: String,
             direction: '',
             titleData: "Pour mieux vous connaitre...",
             titleInstrument: "Choississez vos instruments favoris",
@@ -78,7 +80,9 @@ export default {
     components: {
         instrumentSelect,
         kindSelect,
-        personalDataForm
+        personalDataForm,
+        status,
+        preference
     },
     computed: {
         animationForm() {
