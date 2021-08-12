@@ -3,12 +3,12 @@
         <legend class="col-12 border">{{title}} </legend>
 
         <!-- BLOC RECHERCHE INSTRUMENT -->
-        <aside class="col-12 border mb-4">
+        <aside class="col-12 border mb-4 text-center">
 
             <input class="col-5" type="text" v-model="searchInst" placeholder="Rechercher un instrument" v-on:keyup.enter="searchInstrument()">
             <button type="button" id='select' @click="searchInstrument()">Search</button>
             
-            <div class="col-12" v-if="showInstrument == true">
+            <div class="col-12 mt-3" v-if="showInstrument == true">
                 <input type="checkbox" :value="resultSearch" name="instrumentSelection" v-model="instrumentSelection">
                 <label :for="resultSearch">{{resultSearch}}</label>
             </div> 

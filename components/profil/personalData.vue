@@ -1,5 +1,5 @@
 <template>
-    <fieldset class="row m-3 border">
+    <fieldset class="row m-3">
 
         <legend class="col-12">{{title}} </legend>
         <label class="col-2 m-3" for="pseudo">pseudo : </label>

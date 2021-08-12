@@ -1,5 +1,5 @@
 <template>
-    <main class="container border">
+    <main class="container">
 
         <h1 class="row">S'incrire</h1>
 

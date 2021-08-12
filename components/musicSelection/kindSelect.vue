@@ -1,5 +1,5 @@
 <template>
-    <fieldset class="row m-3 border">
+    <fieldset class="row m-3">
         <legend>{{title}} </legend>
 
         <div class="col-12">
