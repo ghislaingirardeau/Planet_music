@@ -1,22 +1,28 @@
 <template>
     <fieldset class="row m-3">
-        <legend>{{title}} </legend>
+        <legend class="col-12 border">{{title}} </legend>
 
-        <div class="col-12 m-3">
+        <!-- BLOC RECHERCHE INSTRUMENT -->
+        <aside class="col-12 border mb-4">
+
             <input class="col-5" type="text" v-model="searchInst" placeholder="Rechercher un instrument" v-on:keyup.enter="searchInstrument()">
             <button type="button" id='select' @click="searchInstrument()">Search</button>
-            <div v-if="showInstrument == true">
+            
+            <div class="col-12" v-if="showInstrument == true">
                 <input type="checkbox" :value="resultSearch" name="instrumentSelection" v-model="instrumentSelection">
                 <label :for="resultSearch">{{resultSearch}}</label>
             </div> 
         
-            <p v-else-if="showInstrument == false">"Cet instrument n'est pas dans la liste"</p>
-        </div>
+            <p class="m-3" v-else-if="showInstrument == false">"Cet instrument n'est pas dans la liste"</p>
+            
+        </aside>
 
-        <div v-for="(item, name) in instrumentClass" :key="name">  
+        <!-- BOUTON MODAL CATEGORIE INSTRUMENT -->
+        <div class="border col-4 text-center mb-3" v-for="(item, name) in instrumentClass" :key="name">  
             <b-button v-b-modal="'my-modal'" @click="showInstruments(name, item)">{{name}}</b-button>
         </div>
 
+        <!-- AFFICHAGE DU MODAL ET LISTE INSTRUMENTS -->
         <b-modal id="my-modal" title="Sélectionner votre instrument">
             <div v-if="instrumentCategory">
                 <div v-for="item in instrumentsList" :key="item">
@@ -26,7 +32,13 @@
             </div>
         </b-modal>
 
-        <button @click="next">Suivant</button>
+        <!-- AFFICHE INSTRUMENT VALIDER ET BOUTON -->
+        <div class="col-12">
+            
+            <strong class="d-block mb-4">{{instrumentSelected}}</strong>
+            <button @click="next">Valider</button>
+
+        </div>
 
     </fieldset>
 
@@ -48,7 +60,9 @@ export default {
         }
     },
     computed: {
-        
+        instrumentSelected() {
+            return "Mes instruments préférés: " + this.instrumentSelection.join(', ')
+        }
     },
     methods: {
         searchInstrument() {

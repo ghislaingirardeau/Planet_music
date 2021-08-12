@@ -1,5 +1,5 @@
 <template>
-    <fieldset class="row m-3">
+    <fieldset class="row m-3 border">
         <legend>Type de formation privilégié :</legend>
 
         <div class="col-12">

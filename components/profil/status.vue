@@ -1,8 +1,8 @@
 <template>
-    <fieldset class="row m-3">
+    <fieldset class="row m-3 border">
         <legend>Vous êtes :</legend>
 
-        <div class="col-12">
+        <div class="col-12 border">
             <input type="radio" value="Amateur" v-model="userStatus" @click="next">
             <label for="Amateur">Amateur</label>
         </div>

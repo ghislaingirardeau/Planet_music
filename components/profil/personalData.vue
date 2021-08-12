@@ -1,9 +1,9 @@
 <template>
-    <fieldset class="row m-3">
+    <fieldset class="row m-3 border">
 
         <legend class="col-12">{{title}} </legend>
         <label class="col-2 m-3" for="pseudo">pseudo : </label>
-        <input class="col-3 m-3" type="text" name="pseudo" id="pseudo" v-model="lastname">
+        <input class="col-3 m-3" type="text" name="pseudo" id="pseudo" v-model="pseudo">
 
         <label class="col-2 m-3" for="lastname">Votre nom : </label>
         <input class="col-3 m-3" type="text" name="lastname" id="lastname" v-model="lastname">
@@ -21,7 +21,7 @@
         <label class="col-2 m-3" for="email">Enter your email: </label>
         <input class="col-3 m-3" type="email" name="email" id="email" v-model="email">
         
-        <label class="col-2 m-3" for="password">Enter your password: </label>
+        <label class="col-2 m-3" for="password">Votre mot de passe: </label>
         <input class="col-3 m-3" type="password" name="password" id="password" v-model="password">
         
         <label class="col-2 m-3" for="sexe">sexe: </label>
