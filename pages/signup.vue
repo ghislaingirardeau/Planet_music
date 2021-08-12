@@ -36,8 +36,9 @@
                 </div>
             </transition>
 
+            <!-- AFFICHAGE CONDITION SI ELEVE \ PROF -->
             <transition :name="animationForm" mode="out-in">
-                <div class="form__bloc container" v-show="on === 5">
+                <div class="form__bloc container" v-show="on === 5 && (this.$children[2].userCategory === 'student' || this.$children[2].userCategory === 'professor')">
                     <preference :next="next"/>
                 </div>
             </transition>
@@ -98,7 +99,6 @@ export default {
                 this.direction = "left"
             }
         },
-        
     }
 }
 </script>

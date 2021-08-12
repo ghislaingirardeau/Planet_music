@@ -3,8 +3,8 @@
         <legend>Vous êtes :</legend>
 
         <div class="col-12">
-            <input type="radio" value="Amateur" v-model="userStatus" @click="next">
-            <label for="Amateur">Amateur</label>
+            <input type="radio" value="amateur" v-model="userStatus" @click="next">
+            <label for="amateur">Amateur</label>
         </div>
 
         <div class="col-12">

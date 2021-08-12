@@ -4,7 +4,7 @@
 
         <div class="col-12">
             <input type="radio" value="student" v-model="userCategory" @click="next">
-            <label for="Student">Elève</label>
+            <label for="student">Elève</label>
         </div>
 
         <div class="col-12">
