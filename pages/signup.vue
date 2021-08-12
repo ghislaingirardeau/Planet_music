@@ -26,19 +26,19 @@
 
             <transition :name="animationForm" mode="out-in">
                 <div class="form__bloc container" v-show="on === 3">
-                    <preference :next="next"/>
-                </div>
-            </transition>
-
-            <transition :name="animationForm" mode="out-in">
-                <div class="form__bloc container" v-show="on === 4">
                     <instrumentSelect :title="titleInstrument" :next="next"/>
                 </div>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <div class="form__bloc container" v-show="on === 5 ">
+                <div class="form__bloc container" v-show="on === 4">
                     <kindSelect :title="titleKind" :next="next"/>
+                </div>
+            </transition>
+
+            <transition :name="animationForm" mode="out-in">
+                <div class="form__bloc container" v-show="on === 5">
+                    <preference :next="next"/>
                 </div>
             </transition>
 
@@ -64,8 +64,7 @@ export default {
             titleCategory: "Parlons musique, dans quelle catégorie vous situez vous :",
             titleData: "Pour mieux vous connaitre...",
             titleInstrument: "Choississez vos instruments favoris",
-            titleKind: "Choississez vos styles musicals",
-            name: 'Vue.js'
+            titleKind: "Votre style de musique",
         }
     },
     components: {
