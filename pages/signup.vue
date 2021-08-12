@@ -1,47 +1,48 @@
 <template>
-    <main class="container__signup">
-        <button><nuxt-link :to="{name: 'home'}">home</nuxt-link></button>
+    <main class="container">
+        <!-- Simuler la validation du formulaire -->
+        <button><nuxt-link :to="{name: 'home'}">home</nuxt-link>
+        </button>
 
-        <h1>Signup</h1>
+        <h1 class="row">Signup</h1>
 
-        <button @click="prev">prev</button>
-        
+        <button @click="prev" v-if="on > 0">Retour</button>
 
-        <form class="form__signup" id="form">
+        <form id="signup__bloc" v-on:submit.prevent> <!-- Empecher envoie du formulaire au click du bouton suivant -->
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form__bloc" v-show="on === 0">
+                <div class="form__bloc" v-show="on === 0">
                     <personalData :title="titleData" :next="next" />
-                </fieldset>
+                </div>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form__bloc" v-show="on === 1">
+                <div class="form__bloc" v-show="on === 1">
                     <status :next="next" />
-                </fieldset>
+                </div>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form__bloc" v-show="on === 2">
+                <div class="form__bloc" v-show="on === 2">
                     <category :title="titleCategory" :next="next" />
-                </fieldset>
+                </div>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form__bloc" v-show="on === 3">
+                <div class="form__bloc" v-show="on === 3">
                     <preference :next="next"/>
-                </fieldset>
+                </div>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form__bloc" v-show="on === 4">
+                <div class="form__bloc" v-show="on === 4">
                     <instrumentSelect :title="titleInstrument" :next="next"/>
-                </fieldset>
+                </div>
             </transition>
 
             <transition :name="animationForm" mode="out-in">
-                <fieldset class="form__bloc" v-show="on === 5 ">
+                <div class="form__bloc" v-show="on === 5 ">
                     <kindSelect :title="titleKind" :next="next"/>
-                </fieldset>
+                </div>
             </transition>
 
         </form>
@@ -99,8 +100,7 @@ export default {
                 this.on--
                 this.direction = "left"
             }
-        },
-        
+        },        
     }
 }
 </script>

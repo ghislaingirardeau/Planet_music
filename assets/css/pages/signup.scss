@@ -1,23 +1,11 @@
-.container__signup{
-    width: 80%;
-    margin: auto;
-}
-
-.form__signup {
-    width: 80%;
-    text-align: left;
-    display: flex;
-    flex-wrap: wrap;
+#signup__bloc{
     position: relative;
-    & > label, input {
-        width: 100%;
-    }
-    & > fieldset {
-        position: absolute;
-    }
+}
+.form__bloc{
+    position: absolute;
 }
 
-/* Animation forms slide */
+/* Animation forms slide right direction on next */
 .signup-slide-right-enter-active {
     transition: opacity 1s, transform 1s;
     transform: translateX(0px);
@@ -35,6 +23,8 @@
     opacity: 0;
     transform: translateX(-80px);
 }
+
+/* Animation forms slide left direction on next */
   
 .signup-slide-left-enter-active {
     transition: opacity 1s, transform 1s;

@@ -1,35 +1,38 @@
 <template>
-    <fieldset >
-        <legend>{{title}} </legend>
-        <label for="pseudo">pseudo : </label>
-        <input type="text" name="pseudo" id="pseudo" v-model="lastname">
+    <fieldset class="row m-3">
 
-        <label for="lastname">Votre nom : </label>
-        <input type="text" name="lastname" id="lastname" v-model="lastname">
+        <legend class="col-12">{{title}} </legend>
+        <label class="col-2 m-3" for="pseudo">pseudo : </label>
+        <input class="col-3 m-3" type="text" name="pseudo" id="pseudo" v-model="lastname">
 
-        <label for="firstname">Votre prénom : </label>
-        <input type="text" name="firstname" id="firstname" v-model="firstname">
+        <label class="col-2 m-3" for="lastname">Votre nom : </label>
+        <input class="col-3 m-3" type="text" name="lastname" id="lastname" v-model="lastname">
 
-        <label for="birth">Date de naissance : </label>
-        <input type="date" name="birth" id="birth" max="2021-12-31" v-model="birth">
+        <label class="col-2 m-3" for="firstname">Votre prénom : </label>
+        <input class="col-3 m-3" type="text" name="firstname" id="firstname" v-model="firstname">
 
-        <label for="localization">Localisation : </label>
-        <input type="text" name="localization" id="localization" v-model="localization">
+        <label class="col-2 m-3" for="birth">Date de naissance : </label>
+        <input class="col-3 m-3" type="date" name="birth" id="birth" max="2021-12-31" v-model="birth">
+
+        <label class="col-2 m-3" for="localization">Localisation : </label>
+        <input class="col-3 m-3" type="text" name="localization" id="localization" v-model="localization">
         
-        <p>pour suivre toute l'actu musique au plus proche de chez vous !</p>
-        <label for="email">Enter your email: </label>
-        <input type="email" name="email" id="email" v-model="email">
+        <legend class="col-12 m-3">Pour suivre toute l'actu musique au plus proche de chez vous !</legend>
+        <label class="col-2 m-3" for="email">Enter your email: </label>
+        <input class="col-3 m-3" type="email" name="email" id="email" v-model="email">
         
-        <label for="password">Enter your password: </label>
-        <input type="password" name="password" id="password" v-model="password">
+        <label class="col-2 m-3" for="password">Enter your password: </label>
+        <input class="col-3 m-3" type="password" name="password" id="password" v-model="password">
         
-        <label for="sexe">sexe: </label>
-        <input type="sexe" name="sexe" id="sexe" v-model="sexe">
+        <label class="col-2 m-3" for="sexe">sexe: </label>
+        <input class="col-3 m-3" type="sexe" name="sexe" id="sexe" v-model="sexe">
         <!-- prof -->
-        <label for="diplome">diplome: </label>
-        <input type="diplome" name="diplome" id="diplome" v-model="diplome">
+        <label class="col-2 m-3" for="diplome">diplome: </label>
+        <input class="col-3 m-3" type="diplome" name="diplome" id="diplome" v-model="diplome">
 
-        <input type="button" value="next" @click="next">
+        <div class="col-12">
+            <button @click="next">Suivant</button>
+        </div>
 
     </fieldset>
 
