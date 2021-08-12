@@ -1,12 +1,22 @@
 <template>
-    <fieldset>
+    <fieldset class="row m-3">
         <legend>{{title}} </legend>
-        <button type="button" id='select' @click="searchInstrument()">Search</button>
-        <input type="text" v-model="searchInst">
+
+        <div class="col-12 m-3">
+            <input class="col-5" type="text" v-model="searchInst" placeholder="Rechercher un instrument" v-on:keyup.enter="searchInstrument()">
+            <button type="button" id='select' @click="searchInstrument()">Search</button>
+            <div v-if="showInstrument == true">
+                <input type="checkbox" :value="resultSearch" name="instrumentSelection" v-model="instrumentSelection">
+                <label :for="resultSearch">{{resultSearch}}</label>
+            </div> 
+        
+            <p v-else-if="showInstrument == false">"Cet instrument n'est pas dans la liste"</p>
+        </div>
 
         <div v-for="(item, name) in instrumentClass" :key="name">  
             <b-button v-b-modal="'my-modal'" @click="showInstruments(name, item)">{{name}}</b-button>
         </div>
+
         <b-modal id="my-modal" title="Sélectionner votre instrument">
             <div v-if="instrumentCategory">
                 <div v-for="item in instrumentsList" :key="item">
@@ -15,13 +25,8 @@
                 </div>
             </div>
         </b-modal>
-        <div v-if="showInstrument == true">
-            <input type="checkbox" :value="resultSearch" name="instrumentSelection" v-model="instrumentSelection">
-            <label :for="resultSearch">{{resultSearch}}</label>
-        </div> 
-        <p v-else-if="showInstrument == false">"Cet instrument n'est pas dans la liste"</p>
 
-        <input type="button" value="next" @click="next">        
+        <button @click="next">Suivant</button>
 
     </fieldset>
 
