@@ -1,9 +1,9 @@
 <template>
     <fieldset class="row m-3">
-        <legend class="col-12 border">{{title}} </legend>
+        <legend class="col-12">{{title}} </legend>
 
         <!-- BLOC RECHERCHE INSTRUMENT -->
-        <aside class="col-12 border mb-4 text-center">
+        <aside class="col-12 mb-4 text-center">
 
             <input class="col-5" type="text" v-model="searchInst" placeholder="Rechercher un instrument" v-on:keyup.enter="searchInstrument()">
             <button type="button" id='select' @click="searchInstrument()">Search</button>
@@ -18,7 +18,7 @@
         </aside>
 
         <!-- BOUTON MODAL CATEGORIE INSTRUMENT -->
-        <div class="border col-4 text-center mb-3" v-for="(item, name) in instrumentClass" :key="name">  
+        <div class=" col-4 text-center mb-3" v-for="(item, name) in instrumentClass" :key="name">  
             <b-button v-b-modal="'my-modal'" @click="showInstruments(name, item)">{{name}}</b-button>
         </div>
 
