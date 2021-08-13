@@ -7,8 +7,8 @@
         
         <label class="col-2 m-3" for="gender">Genre </label>
         <select class="col-3 m-3" name="gender" id="gender" v-model="dataPost.gender">
-            <option value="Mr">Mr</option>
-            <option value="Mme">Mme</option>
+            <option value="M">Mr</option>
+            <option value="F">Mme</option>
         </select>      
         
         <label class="col-2 m-3" for="lastname">Votre nom : </label>

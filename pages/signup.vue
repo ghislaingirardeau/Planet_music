@@ -66,6 +66,7 @@ export default {
             titleData: "Pour mieux vous connaitre...",
             titleInstrument: "Choississez vos instruments favoris",
             titleKind: "Votre style de musique",
+            newUser: Object
         }
     },
     components: {
@@ -111,15 +112,15 @@ export default {
                 }
             }
 
-            let newUser = new User (
+            this.newUser = JSON.stringify(new User (
                 this.$children[0].dataPost, 
                 this.$children[1].userStatus, 
                 this.$children[2].userCategory,
                 this.$children[3].instrumentSelection, 
                 this.$children[4].musicType
-                )
+                ))
 
-            console.log(JSON.stringify(newUser))
+            /* console.log(JSON.stringify(this.newUser)) */
         }
     }
 }

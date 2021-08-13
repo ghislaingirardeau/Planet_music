@@ -1,0 +1,8 @@
+{
+    "id":{"pseudo":"gege","lastname":"GIRARDEAU","firstname":"Ghislain","birth":"","gender":"M","localization":"",
+        "email":"toto@gmail.com","password":"qwerty","diplome":""},
+    "status":"amateur",
+    "category":"student",
+    "instrument":["violon","basse","guitare"],
+    "musicType":["latino","dance"]
+}
