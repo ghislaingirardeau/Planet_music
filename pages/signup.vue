@@ -2,7 +2,7 @@
     <main class="container">
 
         <h1 class="row">S'incrire</h1>
-
+        <button @click="PostData">Send</button>
         <button @click="prev" v-if="on > 0">Retour</button>
 
         <form id="signup__bloc" v-on:submit.prevent> <!-- Empecher envoie du formulaire au click du bouton suivant -->
@@ -99,6 +99,28 @@ export default {
                 this.direction = "left"
             }
         },
+        PostData() {           
+
+            class User {
+                constructor(id, status, category, instrument, musicType) {
+                this.id = id
+                this.status = status;
+                this.category = category;
+                this.instrument = instrument;
+                this.musicType = musicType;
+                }
+            }
+
+            let newUser = new User (
+                this.$children[0].dataPost, 
+                this.$children[1].userStatus, 
+                this.$children[2].userCategory,
+                this.$children[3].instrumentSelection, 
+                this.$children[4].musicType
+                )
+
+            console.log(JSON.stringify(newUser))
+        }
     }
 }
 </script>
