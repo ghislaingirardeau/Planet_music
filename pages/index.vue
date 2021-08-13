@@ -46,5 +46,7 @@ export default {
   text-decoration: none;
   border: 2px solid black;
   padding: 3px;
+  z-index: 1;
+  background: rgb(175, 162, 162);
 }
 </style>
