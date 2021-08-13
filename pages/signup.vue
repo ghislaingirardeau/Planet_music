@@ -2,7 +2,7 @@
     <main class="container main__signup">
 
         <h1 class="row">S'incrire</h1>
-        <button @click="PostData">Send</button>
+        <button @click="PostData" v-if="on === 5">Send</button>
         <button @click="prev" v-if="on > 0">Retour</button>
 
         <form id="signup__bloc" v-on:submit.prevent> <!-- Empecher envoie du formulaire au click du bouton suivant -->

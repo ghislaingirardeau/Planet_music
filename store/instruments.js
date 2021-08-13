@@ -4,4 +4,5 @@ export default {
     Cuivre: ['flute', 'trompette'],
     Clavier: ['piano'],
     Bois: ['djereadoo'],
+    New: ['tongophone']
 }
