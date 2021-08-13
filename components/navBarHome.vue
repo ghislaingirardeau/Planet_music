@@ -14,6 +14,7 @@
       <nuxt-link :to="{name: '#'}" class="p-4">Profil</nuxt-link>
     </nav>
 
+<!-- SEARCH PUBLICATION, MUSIC LESSON, CONCERT FOR FREE -->
     <div class="col-12 mt-4">
       <label for="search">Barre de recherche</label>
       <input type="text" name="search" id="search">
