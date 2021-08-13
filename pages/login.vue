@@ -16,7 +16,8 @@
           </div>
 
           <div class="col-12 m-3">
-            <button type="submit"><nuxt-link :to="{name: 'home'}">Page Connection</nuxt-link></button>
+            <button type="submit"><nuxt-link :to="{name: 'amateur'}">home amateur</nuxt-link></button>
+            <button type="submit"><nuxt-link :to="{name: 'professionel'}">home pro</nuxt-link></button>
           </div>
 
         </form>

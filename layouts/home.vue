@@ -1,6 +1,6 @@
 <template>
-  <div>
-      layout page home
+  <div class="container">
+      <navBarHome />
       <Nuxt />
   </div>
 </template>

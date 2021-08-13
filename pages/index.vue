@@ -27,7 +27,7 @@
         <p>La définition d'une valeur la suggère comme nom de fichier. Les caractères / et \ sont convertis en caractères de soulignement (_). Les systèmes de fichiers peuvent interdire d'autres caractères dans les noms de fichiers, les navigateurs ajusteront donc le nom suggéré si nécessaire.</p>
       </article>
 
-      <a href="#">Menu</a>
+      <a class="btn-up" href="#">Menu</a>
     
   </main>
 </template>
@@ -37,3 +37,14 @@ export default {
   layout: 'landing'
 }
 </script>
+
+<style>
+.btn-up{
+  position: fixed;
+  bottom: 5%;
+  right: 15%;
+  text-decoration: none;
+  border: 2px solid black;
+  padding: 3px;
+}
+</style>
