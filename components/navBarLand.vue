@@ -1,7 +1,9 @@
 <template>
-  <header class="row align-items-center border p-5">
+  <header class="row align-items-center p-3">
 
-    <p class="col-4">LOGO</p>
+    <div class="col-4">
+      <p>LOGO</p>
+    </div>
 
     <nav class="col-6 text-right">
       <nuxt-link :to="{name: 'index'}" class="p-4">Accueil</nuxt-link>
@@ -10,12 +12,13 @@
     </nav>
 
     <nav class="col-2">
-    <b-dropdown class="mx-1" left text="menu">
-      <b-link class="d-block p-3" href="#concept">concept</b-link>
-      <b-link class="d-block p-3" href="#vision">vision</b-link>
-      <b-link class="d-block p-3" href="#offre">offre</b-link>
-    </b-dropdown> 
+      <b-dropdown class="mx-1" left text="menu">
+        <b-link class="d-block p-3" href="#concept">concept</b-link>
+        <b-link class="d-block p-3" href="#vision">vision</b-link>
+        <b-link class="d-block p-3" href="#offre">offre</b-link>
+      </b-dropdown> 
     </nav>
 
   </header>
+
 </template>

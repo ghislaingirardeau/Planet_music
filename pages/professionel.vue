@@ -42,9 +42,3 @@ export default {
 }
 </script>
 
-<style>
-main{
-  margin-top: 200px;
-  z-index: 0;
-}
-</style>
