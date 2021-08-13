@@ -1,26 +1,38 @@
 <template>
-    <main>
-      <h1>Page perso une fois connecté</h1>
-      <aside>
-      <h2>Communauté</h2>
-      <p>personne ou groupe suivi, actu musique region, nouvelle tendance (instument, genre musique)</p>
-      <ul>PAGE SPECIAL etudiant / prof
-        <li>Tableau de bord : Mes statistiques \ recommandation, avis \ messagerie</li>
-        <li>mes cours : etudiant(favoris et inscris) \ prof (liste de ses cours)</li>
-        <li>tous les cours</li>
-        <li>mes disponibilites : pour du presenciel ou un echange direct</li>
-        <li>Music event : trouver des concerts, groupe, festival pres de chez soi</li>
-      </ul>
+    <main class="row justify-content-around">
 
-      <ul>PAGE SPECIAL musicien, groupe, festival
-        <li>Tableau de bord : Mes publications: video, presse... pour se promouvoir \ recommandation, avis \ messagerie</li>
-        <li>Mes dispo \ planning : possibilité de reservation</li>
-        <li>Mes besoins : musicien(renvoie au prof/etudiant), groupe, salle, matos, recherche de bénévolat</li>
-        <li>Mon site web dédié : presentation / tarif / merchandising, possibilite de personnaliser sa page et son domaine</li>
-        <li>Music event : trouver des concerts, groupe, festival pres de chez soi</li>
-      </ul>
+      <h1 class="col-12">Page spécifique groupe, musicien, festival, bar</h1>
+
+      <div class="col-5 border">
+        <h2>Communauté</h2>
+        <p>personne ou groupe suivi, musique et instrument suivi, prof suivi, artiste suivi</p>
+      </div>
+
+      <div class="col-5 border">
+        <h2>Tableau de bords</h2>
+        <p>Mes publications: video, presse... pour se promouvoir \ recommandation, avis \ messagerie </p>
+        <p>like \ dislike</p>
+        <p>gestion des commentaires</p>
+      </div>
+
+      <div class="col-5 border">
+        <h2>gestion du travail</h2>
+        <p>Mes dispo \ planning </p>
+        <p>Mon site web dédié : presentation / tarif / merchandising, possibilite de personnaliser sa page et son domaine</p>
+        <p>possibilité de reservation</p>
+        <p>poster ma musique SPE MUSICIEN</p>
+        <p>Mes besoins : musicien(renvoie au prof/etudiant), groupe, salle, matos, recherche de bénévolat</p>
+      </div>
+
+      <div class="col-5 border">
+        <h2>Music world</h2>
+        <p>Acces global a toute la base de donnée :<br>
+        recherche des concerts, groupe, festival pres de chez soi</p>
+        <p>Recherche lieu de repetition</p>
+        <p>achat et echange de instrument musique</p>
+        <p>Decouverte de nouveaux instruments, nouvelles musique</p>
+      </div>
       
-      </aside>
     </main>
 </template>
 
