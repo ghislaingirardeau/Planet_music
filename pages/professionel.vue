@@ -3,19 +3,19 @@
 
       <h1 class="col-12">Page spécifique groupe, musicien, festival, bar</h1>
 
-      <div class="col-5 border">
+      <div class="col-5 mt-3 border">
         <h2>Communauté</h2>
         <p>personne ou groupe suivi, musique et instrument suivi, prof suivi, artiste suivi</p>
       </div>
 
-      <div class="col-5 border">
+      <div class="col-5 mt-3 border">
         <h2>Tableau de bords</h2>
         <p>Mes publications: video, presse... pour se promouvoir \ recommandation, avis \ messagerie </p>
         <p>like \ dislike</p>
         <p>gestion des commentaires</p>
       </div>
 
-      <div class="col-5 border">
+      <div class="col-5 mt-3 border">
         <h2>gestion du travail</h2>
         <p>Mes dispo \ planning </p>
         <p>Mon site web dédié : presentation / tarif / merchandising, possibilite de personnaliser sa page et son domaine</p>
@@ -24,7 +24,7 @@
         <p>Mes besoins : musicien(renvoie au prof/etudiant), groupe, salle, matos, recherche de bénévolat</p>
       </div>
 
-      <div class="col-5 border">
+      <div class="col-5 mt-3 border">
         <h2>Music world</h2>
         <p>Acces global a toute la base de donnée :<br>
         recherche des concerts, groupe, festival pres de chez soi</p>
@@ -41,3 +41,10 @@ export default {
   layout: 'home'
 }
 </script>
+
+<style>
+main{
+  margin-top: 200px;
+  z-index: 0;
+}
+</style>

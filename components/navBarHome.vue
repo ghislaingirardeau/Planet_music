@@ -1,7 +1,7 @@
 <template>
   <header class="row align-items-center p-3">
 
-    <div class="col-4 border">
+    <div class="col-4">
       <div>LOGO</div>
       <div><nuxt-link :to="{name: 'index'}" class="d-block">Deconnexion</nuxt-link></div>
     </div>
@@ -14,7 +14,7 @@
       <nuxt-link :to="{name: '#'}" class="p-4">Profil</nuxt-link>
     </nav>
 
-    <div class="col-12 mt-4 border">
+    <div class="col-12 mt-4">
       <label for="search">Barre de recherche</label>
       <input type="text" name="search" id="search">
       <button>Rechercher</button>
@@ -22,3 +22,7 @@
 
   </header>
 </template>
+
+<style>
+
+</style>
