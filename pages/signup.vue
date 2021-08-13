@@ -1,5 +1,5 @@
 <template>
-    <main class="container">
+    <main class="container main__signup">
 
         <h1 class="row">S'incrire</h1>
         <button @click="PostData">Send</button>

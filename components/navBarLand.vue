@@ -1,5 +1,5 @@
 <template>
-  <header class="row align-items-center p-3">
+  <header class="row align-items-center p-3 header__land">
 
     <div class="col-4">
       <p>LOGO</p>

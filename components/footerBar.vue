@@ -1,5 +1,5 @@
 <template>
-    <footer class="container p-3">
+    <footer class="row">
         <ul class="list-group list-group-horizontal">
             <li class="list-group-item">About us</li>
             <li class="list-group-item">Help</li>

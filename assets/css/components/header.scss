@@ -1,10 +1,9 @@
-header{
+.header__land, .header__home{
     border-bottom: 2px solid blue;
     position: fixed;
     top: 0;
     left: 5%;
     width: 90%;
-    margin: auto;
     background: white;
     z-index: 1;
   }
